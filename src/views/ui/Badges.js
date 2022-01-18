@@ -13,7 +13,7 @@ const Badges = () => {
           {/* --------------------------------------------------------------------------------*/}
           <Card>
             <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-              Badges
+              Equipements
             </CardTitle>
             <CardBody className="">
               <div>

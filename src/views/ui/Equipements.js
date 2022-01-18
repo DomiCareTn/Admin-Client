@@ -51,7 +51,7 @@ const BlogData = [
   },
 ];
 
-const Cards = () => {
+const Equipements = () => {
   return (
     <div>
       {/* --------------------------------------------------------------------------------*/}
@@ -273,4 +273,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Equipements;

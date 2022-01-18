@@ -53,8 +53,8 @@ const Starter = () => {
           <TopCards
             bg="bg-light-success text-success"
             title="Profit"
-            subtitle="Yearly Earning"
-            earning="$21k"
+            subtitle="Service Seekers"
+            earning="60 "
             icon="bi bi-wallet"
           />
         </Col>
@@ -62,8 +62,8 @@ const Starter = () => {
           <TopCards
             bg="bg-light-danger text-danger"
             title="Refunds"
-            subtitle="Refund given"
-            earning="$1k"
+            subtitle="Service providers"
+            earning="50"
             icon="bi bi-coin"
           />
         </Col>
@@ -71,8 +71,8 @@ const Starter = () => {
           <TopCards
             bg="bg-light-warning text-warning"
             title="New Project"
-            subtitle="Yearly Project"
-            earning="456"
+            subtitle="Equipement providers"
+            earning="145"
             icon="bi bi-basket3"
           />
         </Col>
@@ -80,11 +80,27 @@ const Starter = () => {
           <TopCards
             bg="bg-light-info text-into"
             title="Sales"
-            subtitle="Weekly Sales"
+            subtitle="Service requests"
             earning="210"
             icon="bi bi-bag"
           />
         </Col>
+        <Col sm="6" lg="3">
+          <TopCards
+            bg="bg-light-info text-into"
+            title="Sales"
+            subtitle="Service offer"
+            earning="32"
+            icon="bi bi-bag"
+          />
+        </Col>
+
+
+
+
+
+
+
       </Row>
       {/***Sales & Feed***/}
       <Row>

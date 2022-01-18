@@ -8,7 +8,7 @@ import {
   BreadcrumbItem,
 } from "reactstrap";
 
-const Breadcrumbs = () => {
+const Reports = () => {
   return (
     <Row>
       <Col>
@@ -46,4 +46,4 @@ const Breadcrumbs = () => {
   );
 };
 
-export default Breadcrumbs;
+export default Reports;

@@ -19,13 +19,13 @@ const navigation = [
     icon: "bi bi-patch-check",
   },
   {
-    title: "Buttons",
-    href: "/buttons",
+    title: "Posts",
+    href: "/Posts",
     icon: "bi bi-hdd-stack",
   },
   {
-    title: "Cards",
-    href: "/cards",
+    title: "Equipements",
+    href: "/Equipements",
     icon: "bi bi-card-text",
   },
   {
@@ -34,8 +34,8 @@ const navigation = [
     icon: "bi bi-columns",
   },
   {
-    title: "Table",
-    href: "/table",
+    title: "Users",
+    href: "/Users",
     icon: "bi bi-layout-split",
   },
   {
@@ -44,8 +44,8 @@ const navigation = [
     icon: "bi bi-textarea-resize",
   },
   {
-    title: "Breadcrumbs",
-    href: "/breadcrumbs",
+    title: "Reports",
+    href: "/Reports",
     icon: "bi bi-link",
   },
   {
