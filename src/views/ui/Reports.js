@@ -4,13 +4,39 @@ import {
   Card,
   CardBody,
   CardTitle,
-  Breadcrumb,
-  BreadcrumbItem,
+ 
+  CardText
 } from "reactstrap";
+import axios from "axios";
+import React, { useState,useEffect } from "react";
 
 const Reports = () => {
+  const [report, setReport] = useState([])
+
+  useEffect(() => {
+    async function fetchReports() {
+    
+      let result = await axios.get("http://192.168.1.16:3000/admin/reports")
+
+      // let users= await axios.get()
+
+  
+
+      setReport(result.data)
+      
+      
+    
+    }
+    fetchReports()
+  }, [])
+
+
   return (
     <Row>
+      {report.map((rep,key) => {
+        return (
+          
+      
       <Col>
         {/* --------------------------------------------------------------------------------*/}
         {/* Card-1*/}
@@ -21,27 +47,13 @@ const Reports = () => {
             Basic Breadcrumbs
           </CardTitle>
           <CardBody className="">
-            <Breadcrumb>
-              <BreadcrumbItem active>Home</BreadcrumbItem>
-            </Breadcrumb>
-            <Breadcrumb>
-              <BreadcrumbItem>
-                <a href="/">Home</a>
-              </BreadcrumbItem>
-              <BreadcrumbItem active>Library</BreadcrumbItem>
-            </Breadcrumb>
-            <Breadcrumb>
-              <BreadcrumbItem>
-                <a href="/">Home</a>
-              </BreadcrumbItem>
-              <BreadcrumbItem>
-                <a href="/">Library</a>
-              </BreadcrumbItem>
-              <BreadcrumbItem active>Data</BreadcrumbItem>
-            </Breadcrumb>
+          <CardText> Reason: {rep.reason}</CardText>
+             
           </CardBody>
         </Card>
-      </Col>
+          </Col>
+            )
+          })}
     </Row>
   );
 };

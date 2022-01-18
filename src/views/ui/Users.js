@@ -1,145 +1,87 @@
-import ProjectTables from "../../components/dashboard/ProjectTable";
-import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
+import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
+
+import axios from "axios";
+import React, { useState,useEffect } from "react";
+
 
 const Users = () => {
+  const [sp, setSp] = useState([])
+
+
+  useEffect(() => {
+    async function fetchSp() {
+    
+      let result = await axios.get("http://192.168.1.16:3000/admin/sp")
+
+      // let users= await axios.get()
+
+  
+
+      setSp(result.data)
+      
+      
+    
+    }
+    fetchSp()
+  }, [])
   return (
-    <Row>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* table-1*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Col lg="12">
-        <ProjectTables />
-      </Col>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* table-2*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Col lg="12">
-        <Card>
-          <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-            <i className="bi bi-card-text me-2"> </i>
-            Table with Border
-          </CardTitle>
-          <CardBody className="">
-            <Table bordered>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+    <div>
+      
+      <Card>
+        <CardBody>
+          <CardTitle tag="h5">Project Listing</CardTitle>
+          <CardSubtitle className="mb-2 text-muted" tag="h6">
+            Overview of the projects
+          </CardSubtitle>
+
+          <Table className="no-wrap mt-3 align-middle" responsive borderless>
+            <thead>
+              <tr>
+                <th>Team Lead</th>
+                <th>Project</th>
+
+                <th>Status</th>
+                <th>Weeks</th>
+                <th>Budget</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sp.map((spp, index) => (
+                <tr key={index} className="border-top">
+                  <td>
+                    <div className="d-flex align-items-center p-2">
+                      <img
+                        src={spp.avatar}
+                        className="rounded-circle"
+                        alt="avatar"
+                        width="45"
+                        height="45"
+                      />
+                      <div className="ms-3">
+                        <h6 className="mb-0">{spp.firstName}</h6>
+                        <span className="text-muted">{spp.email}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{spp.lastName}</td>
+                  <td>
+                    {spp.status === "pending" ? (
+                      <span className="p-2 bg-danger rounded-circle d-inline-block ms-3"></span>
+                    ) : spp.status === "holt" ? (
+                      <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
+                    ) : (
+                      <span className="p-2 bg-success rounded-circle d-inline-block ms-3"></span>
+                    )}
+                  </td>
+                  <td>{spp.weeks}</td>
+                  <td>{spp.budget}</td>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </Table>
-          </CardBody>
-        </Card>
-      </Col>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* table-3*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Col lg="12">
-        <Card>
-          <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-            <i className="bi bi-card-text me-2"> </i>
-            Table with Striped
-          </CardTitle>
-          <CardBody className="">
-            <Table bordered striped>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </Table>
-          </CardBody>
-        </Card>
-      </Col>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* table-3*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <Col lg="12">
-        <Card>
-          <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-            <i className="bi bi-card-text me-2"> </i>
-            Table with Hover
-          </CardTitle>
-          <CardBody className="">
-            <Table bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </Table>
-          </CardBody>
-        </Card>
-      </Col>
-    </Row>
+              ))}
+            </tbody>
+          </Table>
+        </CardBody>
+      </Card>
+    </div>
   );
 };
 
