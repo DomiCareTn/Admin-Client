@@ -16,7 +16,7 @@ const Reports = () => {
   useEffect(() => {
     async function fetchReports() {
     
-      let result = await axios.get("http://192.168.1.16:3000/admin/reports")
+      let result = await axios.get("http://192.168.11.57:3000/admin/reports")
 
       // let users= await axios.get()
 
