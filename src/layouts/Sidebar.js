@@ -13,11 +13,7 @@ const navigation = [
     href: "/alerts",
     icon: "bi bi-bell",
   },
-  {
-    title: "Badges",
-    href: "/badges",
-    icon: "bi bi-patch-check",
-  },
+ 
   {
     title: "Posts",
     href: "/Posts",
@@ -28,21 +24,13 @@ const navigation = [
     href: "/Equipements",
     icon: "bi bi-card-text",
   },
-  {
-    title: "Grid",
-    href: "/grid",
-    icon: "bi bi-columns",
-  },
+ 
   {
     title: "Users",
     href: "/Users",
     icon: "bi bi-layout-split",
   },
-  {
-    title: "Forms",
-    href: "/forms",
-    icon: "bi bi-textarea-resize",
-  },
+ 
   {
     title: "Reports",
     href: "/Reports",

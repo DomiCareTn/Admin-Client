@@ -1,35 +1,34 @@
 import axios from "axios";
 import React, { useState,useEffect } from "react";
 import {
-  // Button,
-  // ButtonGroup,
+
   Card,
   CardBody,
   CardTitle,
   Row,
   Col
 } from "reactstrap";
-// import axios from "axios";
+
 
 const Posts = () => {
-  // const [cSelected, setCSelected] = useState([]);
-  // const [rSelected, setRSelected] = useState(null);
-  const [posts,setPosts]= useState([])
 
-  // const onRadioBtnClick = (rSelected) => {
-  //   setRSelected(rSelected);
-  // };
+  const [posts, setPosts] = useState([])
+  const [ss, setSS] = useState([])
+
   
   useEffect(() => {
     async function fetchPosts() {
     
-      let result = await axios.get("http://192.168.1.16:3000/admin/getposts")
+      let result = await axios.get("http://192.168.11.57:3000/admin/getposts")
+      let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
 
-      // let users= await axios.get()
+ 
 
-  
+      setSS(serviceS.data)
 
       setPosts(result.data)
+    
+      
       
       
     
@@ -41,16 +40,12 @@ const Posts = () => {
   return (
     <div>
       <h1>Posts</h1>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Start Inner Div*/}
-      {/* --------------------------------------------------------------------------------*/}
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Row*/}
-      {/* --------------------------------------------------------------------------------*/}
+   
       <Row>
       
       {posts.map((post, key) => {
-        console.log('id',post._id)
+        console.log('id', post._id)
+        console.log(posts.serviceSeeker_id);
         return (
           
 
@@ -84,20 +79,7 @@ const Posts = () => {
         
       })}
          </Row>
-          
-          
-
-
-
-
-
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Row*/}
-      {/* --------------------------------------------------------------------------------*/}
-
-      {/* --------------------------------------------------------------------------------*/}
-      {/* End Inner Div*/}
-      {/* --------------------------------------------------------------------------------*/}
+      
     </div>
   );
 };
