@@ -20,11 +20,7 @@ const Equipements = () => {
   useEffect(() => {
     async function fetchEquips() {
     
-      let result = await axios.get("http://192.168.1.16:3000/admin/equipement")
-
-      // let users= await axios.get()
-
-  
+      let result = await axios.get("http://192.168.11.57:3000/admin/equipement")
 
       setEquips(result.data)
       
@@ -33,6 +29,17 @@ const Equipements = () => {
     }
     fetchEquips()
   }, [])
+  const deleteEquip = async (id) => {
+    try {
+      
+      await axios.delete(`http://192.168.11.57:3000/admin/deleteEquip/${id}`)
+      
+    }
+    catch(err){console.log(err);
+    } 
+  
+    
+  }
 
 
   return (
@@ -52,7 +59,7 @@ const Equipements = () => {
         <CardSubtitle> reference: {equip.reference}</CardSubtitle>
         <CardText className="mt-3"> Description : {equip.description}</CardText>
         <CardText className="mt-3"> Price: {equip.price}</CardText>
-        <Button> delete </Button>
+                <Button onClick={() => { deleteEquip(equip._id) }}> delete </Button>
       </CardBody>
     </Card>
   )
