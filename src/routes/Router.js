@@ -16,6 +16,7 @@ const Equipements = lazy(() => import("../views/ui/Equipements"));
 const Users = lazy(() => import("../views/ui/Users"));
 
 const Reports = lazy(() => import("../views/ui/Reports"));
+const Login = lazy(() => import("../views/ui/Login"));
 
 /*****Routes******/
 
@@ -24,7 +25,9 @@ const ThemeRoutes = [
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "/", element: <Navigate to="/starter" /> },
+      { path: "/", element: <Navigate to="/login" /> },
+      { path: "/login", exact: true, element: <Login /> },
+
       { path: "/starter", exact: true, element: <Starter /> },
       { path: "/about", exact: true, element: <About /> },
       { path: "/alerts", exact: true, element: <Alerts /> },

@@ -20,10 +20,6 @@ const Users = () => {
       let result = await axios.get("http://192.168.11.57:3000/admin/sp")
       let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
       
-   
-
-  
-
       setSp(result.data)
       setSS(serviceS.data)
       
@@ -31,6 +27,9 @@ const Users = () => {
     
     }
     fetchSp()
+    console.log(sp);
+    console.log(ss);
+    
   }, [])
   const banedUser = async (id) => {
     console.log("first");
@@ -217,7 +216,7 @@ const Users = () => {
                   : <img src={unbann} onClick={() => {
                   console.log(s)
                   unbanUserSS(s._id)
-                }} width="50" height="50" />}
+                }} width="45" height="45" />}
                 
                 
                 </td>
