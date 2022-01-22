@@ -1,6 +1,6 @@
 import { Col, Row } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
-import Feeds from "../components/dashboard/Feeds";
+import Admins from "../components/dashboard/Admins";
 import ProjectTables from "../components/dashboard/ProjectTable";
 import TopCards from "../components/dashboard/TopCards";
 import Blog from "../components/dashboard/Blog";
@@ -14,6 +14,7 @@ const Starter = () => {
   const [sp, setSp] = useState([])
   const [ss, setSS] = useState([])
   const [posts,setPosts]= useState([])
+  const [trans,setTrans]= useState([])
  
 
 
@@ -23,12 +24,14 @@ const Starter = () => {
       let result = await axios.get("http://192.168.11.57:3000/admin/sp")
       let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
       let data = await axios.get("http://192.168.11.57:3000/admin/getposts")
+      let transact = await axios.get("http://192.168.11.57:3000/admin/transactions")
 
   
 
       setSp(result.data)
       setSS(serviceS.data)
       setPosts(data.data)
+      setTrans(transact.data)
       
       
     
@@ -116,7 +119,7 @@ const Starter = () => {
                 bg="bg-light-info text-into"
                 title="Sales"
                 subtitle="Service requests"
-                earning="210"
+                earning={trans.length}
                 icon="bi bi-bag"
               />
             </Col>
@@ -152,7 +155,7 @@ const Starter = () => {
           <SalesChart />
         </Col>
         <Col sm="6" lg="6" xl="5" xxl="4">
-          <Feeds />
+          <Admins />
         </Col>
       </Row>
       {/***Table ***/}

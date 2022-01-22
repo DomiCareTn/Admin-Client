@@ -27,6 +27,10 @@ const Header = () => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
+  const  logout=()=> {
+    localStorage.clear();
+    window.location.href = '/';
+}
   return (
     <Navbar color="success" dark expand="md">
       <div className="d-flex align-items-center">
@@ -67,36 +71,26 @@ const Header = () => {
             <Link to="/about" className="nav-link">
               About
             </Link>
+            
           </NavItem>
           <UncontrolledDropdown inNavbar nav>
-            <DropdownToggle caret nav>
-              DD Menu
-            </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
+            
+          
           </UncontrolledDropdown>
         </Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-         
+          <DropdownToggle color="success">
             <img
               src={user1}
               alt="profile"
               className="rounded-circle"
               width="30"
             ></img>
-         
+          </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Info</DropdownItem>
-            <DropdownItem>My Account</DropdownItem>
-            <DropdownItem>Edit Profile</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>My Balance</DropdownItem>
-            <DropdownItem>Inbox</DropdownItem>
-            <DropdownItem>Logout</DropdownItem>
+            <DropdownItem onClick = {logout}>Logout</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>
