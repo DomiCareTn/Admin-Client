@@ -36,18 +36,23 @@ const Reports = () => {
       {report.map((rep,key) => {
         return (
           
-      
-      <Col>
+         
+          <Col>
+            
         {/* --------------------------------------------------------------------------------*/}
         {/* Card-1*/}
         {/* --------------------------------------------------------------------------------*/}
-        <Card>
-          <CardTitle tag="h6" className="border-bottom p-3 mb-0">
+            <Card>
+        
+              <CardTitle tag="h6" className="border-bottom p-3 mb-0">
+             
             <i className="bi bi-link me-2"> </i>
-            Basic Breadcrumbs
+           Report
           </CardTitle>
           <CardBody className="">
-          <CardText> Reason: {rep.reason}</CardText>
+          <CardText> Reporter: {rep.reporterId}</CardText>
+          <CardText> Reported: {rep.reportedId}</CardText>
+          <CardText> Reason: 9{rep.reason}</CardText>
              
           </CardBody>
         </Card>
