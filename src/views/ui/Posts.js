@@ -6,6 +6,7 @@ import {
   CardBody,
   CardTitle,
   Row,
+  Button,
   Col
 } from "reactstrap";
 
@@ -16,8 +17,8 @@ const Posts = () => {
   const [ss, setSS] = useState([])
 
   
-  useEffect(() => {
-    async function fetchPosts() {
+  
+    const  fetchPosts= async ()=> {
       try {
         let result = await axios.get("http://192.168.11.57:3000/admin/getposts")
         // let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
@@ -28,17 +29,33 @@ const Posts = () => {
       }
       catch(err){console.log(err);
       }
+      fetchPosts()
     
    
      
     }
    
     fetchPosts()
-    console.log(posts);
+   
     // console.log(ss);
     
-  }, [],)
+ 
+  useEffect(() => {
+    deletePosts()
+    fetchPosts()
+  }, [])
     
+  const deletePosts = async (id) => {
+    try {
+      
+      await axios.delete(`http://192.168.11.57:3000/admin/postdeletedId/${id}`)
+      
+    }
+    catch(err){console.log(err);
+    } 
+  
+    
+  }
 
   return (
     <div>
@@ -51,8 +68,9 @@ const Posts = () => {
       {/* --------------------------------------------------------------------------------*/}
       <Row>
       
-      {posts.map((post, key) => {
-        console.log('id',post.user)
+        {posts.map((post, key) => {
+         console.log(posts);
+        console.log('id',post)
         return (
           
 
@@ -64,8 +82,8 @@ const Posts = () => {
           {/* --------------------------------------------------------------------------------*/}
           <Card>
             <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-                <h5> Title :{post.title}</h5>
-                <h5> Name :{post.erviceProvider_id}</h5>
+                <h5> Title : I 'am looking for a nurse</h5>
+                <h5> Name :{post.serviceSeeker_id.userName}</h5>
                 
                 
                 
@@ -73,11 +91,13 @@ const Posts = () => {
             <CardBody className="">
               <div className="button-group">
                    
-                    {/* <h1>{ post.firsName}</h1> */}
+                    
                     <h5> Details: { post.content}</h5>
                     <h5>City: { post.city}</h5>
                     <p>Start-Date: { post.startDate}</p>
-                    <p>End-Date: { post.endDate}</p>
+                  <p>End-Date: {post.endDate}</p>
+                  <img style={{ widht: 200, height: 400 }} src={post.file}></img>
+                  <Button  color="danger" style = {{marginTop : -10,marginLeft : 400}} onClick = {deletePosts} >delete</Button>
                    
              
               

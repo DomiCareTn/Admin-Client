@@ -9,7 +9,7 @@ const About = () => {
         {/* --------------------------------------------------------------------------------*/}
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-            <i className="bi bi-bell me-2"> </i>
+            <i className> </i>
             About DomiCare
           </CardTitle>
           <CardBody className="p-4">
@@ -17,10 +17,10 @@ const About = () => {
               <Col lg="8">
                 <h2 className="mt-4">DomiCare Application</h2>
                 <h5 className=" mb-4">
-                DomiCare is a free Android app that connect service providers to service seekers.
+                DomiCare is a free Android app thatprovide a direct connection between service providers and service seekers.
                 </h5>
                 <img
-                  src="https://www.wrappixel.com/wp-content/uploads/edd/2020/04/xtreme-react-admin-template-y.jpg"
+                  src="https://www.domicare-services.be/wp-content/uploads/2019/09/Domicare-services-021008-1-1024x255.png"
                   alt="my"
                 />
    

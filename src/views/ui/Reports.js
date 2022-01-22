@@ -18,22 +18,25 @@ const Reports = () => {
     
       let result = await axios.get("http://192.168.11.57:3000/admin/reports")
 
-      // let users= await axios.get()
+     
 
   
 
       setReport(result.data)
+      console.log(result.data);
       
       
     
     }
     fetchReports()
+    console.log(report);
   }, [])
 
 
   return (
     <Row>
-      {report.map((rep,key) => {
+      {report.map((rep, key) => {
+       
         return (
           
          

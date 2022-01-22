@@ -17,18 +17,26 @@ import React, { useState,useEffect } from "react";
 
 const Equipements = () => {
   const [equips, setEquips] = useState([])
-  useEffect(() => {
-    async function fetchEquips() {
-    
+  const fetchEquips = async () => {
+    try {
       let result = await axios.get("http://192.168.11.57:3000/admin/equipement")
-
+        
+  
       setEquips(result.data)
-      
-      
-    
+
+    }
+    catch(err){console.log(err);
     }
     fetchEquips()
+  }
+  useEffect(() => {
+    deleteEquip()
+    fetchEquips()
+   
   }, [])
+    
+    
+    
   const deleteEquip = async (id) => {
     try {
       
@@ -59,10 +67,10 @@ const Equipements = () => {
         <CardSubtitle> reference: {equip.reference}</CardSubtitle>
         <CardText className="mt-3"> Description : {equip.description}</CardText>
         <CardText className="mt-3"> Price: {equip.price}</CardText>
-                <Button onClick={() => { deleteEquip(equip._id) }}> delete </Button>
+                <Button color="danger" onClick={() => { deleteEquip(equip._id) }}> delete </Button>{' '}
       </CardBody>
     </Card>
-  )
+  
   
           </Col>
         ))}
