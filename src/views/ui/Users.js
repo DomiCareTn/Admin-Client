@@ -14,29 +14,54 @@ const Users = () => {
  
 
 
-  useEffect(() => {
-    async function fetchSp() {
-    
-      let result = await axios.get("http://192.168.11.57:3000/admin/sp")
-      let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
+
+  const fetchSp = async () => {
+    try {
       
-      setSp(result.data)
-      setSS(serviceS.data)
-      
+        let result = await axios.get("http://192.168.11.97:3000/admin/sp")
+        
+        setSp(result.data)
+        
+        
+    }
+    catch(err){console.log(err)}
+     
       
     
     }
-    fetchSp()
-    console.log(sp);
-    console.log(ss);
+  fetchSp()
+  
+  const fetchss = async () => {
+    try {
+      
+        let serviceS = await axios.get("http://192.168.11.97:3000/admin/ss")
+        
+        setSS(serviceS.data)
+        
+        
+    }
+    catch(err){console.log(err)}
+     
+      
     
+    }
+    fetchss()
+    
+  useEffect(() => {
+    fetchSp()
+    fetchss()
+    banedUser()
+    unbanUser()
+    banedUserSS()
+    unbanUserSS()
+      
   }, [])
   const banedUser = async (id) => {
     console.log("first");
     
     try {
       console.log(id);
-      await axios.patch(`http://192.168.11.57:3000/admin/banned/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/banned/${id}`)
       
       
       
@@ -48,7 +73,7 @@ const Users = () => {
   const unbanUser = async (id) => {
     try {
       
-      await axios.patch(`http://192.168.11.57:3000/admin/unbanned/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/unbanned/${id}`)
     }
     catch(err){console.log(err);
     } 
@@ -59,7 +84,7 @@ const Users = () => {
     
     try {
       console.log(id);
-      await axios.patch(`http://192.168.11.57:3000/admin/bannedSS/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/bannedSS/${id}`)
       
       
       
@@ -71,7 +96,7 @@ const Users = () => {
   const unbanUserSS = async (id) => {
     try {
       
-      await axios.patch(`http://192.168.11.57:3000/admin/unbannedSS/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/unbannedSS/${id}`)
       setSS(ss)
     }
     catch(err){console.log(err);
@@ -110,7 +135,7 @@ const Users = () => {
                   <td>
                     <div className="d-flex align-items-center p-2">
                       <img
-                        src={spp.avatar}
+                        src={spp.picture}
                         className="rounded-circle"
                         alt=""
                         width="45"

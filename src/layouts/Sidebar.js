@@ -1,6 +1,7 @@
 import { Button, Nav, NavItem } from "reactstrap";
 import Logo from "./Logo";
 import { Link, useLocation } from "react-router-dom";
+import Logom from "../assets/images/logos/logo.jpg"
 
 const navigation = [
   {
@@ -9,8 +10,8 @@ const navigation = [
     icon: "bi bi-speedometer2",
   },
   {
-    title: "Alert",
-    href: "/alerts",
+    title: "NewRegister",
+    href: "/NewRegister",
     icon: "bi bi-bell",
   },
  
@@ -52,7 +53,7 @@ const Sidebar = () => {
   return (
     <div className="p-3">
       <div className="d-flex align-items-center">
-        <Logo />
+        <img src={Logom} style={ {height:60}}/>
         <Button
           close
           size="sm"

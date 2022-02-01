@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const Login = () => {
   const [formData, setData] = useState([])
   const [error, setError] = useState([])
@@ -15,7 +16,7 @@ const Login = () => {
   
     const signin= async()=> {
     const {email,password}=formData
-      let result = await axios.post(`http://192.168.11.57:3000/admin/adminLogin`, { email,password })
+      let result = await axios.post(`http://192.168.11.97:3000/admin/adminLogin`, { email,password })
       
       setData(result.data)
      
@@ -31,11 +32,7 @@ const Login = () => {
         
        }
 
-      
-  
-      
-      // console.log('==============', formData);
-      console.log(result);
+          console.log(result);
  
       
     
@@ -45,9 +42,11 @@ const Login = () => {
         
 
   
-    return (
+  return (
+    <div>
+     
         <div className="container-fluid ps-md-0">
-  <div className="row g-0">
+  <div className="row g-0"  style = {{display: 'flex', marginRight:500, justifyContent:'center', alignItems:'center', height: '100vh'}}>
     <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
     <div className="col-md-8 col-lg-6">
       <div className="login d-flex align-items-center py-5">
@@ -90,7 +89,8 @@ const Login = () => {
       </div>
     </div>
   </div>
-</div>
+      </div>
+      </div>
     )
 
 

@@ -27,7 +27,7 @@ const Admins = () => {
   useEffect(() => {
     async function fetchSp() {
     
-      let result = await axios.get("http://192.168.11.57:3000/admin/admins")
+      let result = await axios.get("http://192.168.11.97:3000/admin/admins")
       
       setadmins(result.data)
      
