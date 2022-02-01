@@ -19,7 +19,7 @@ const Equipements = () => {
   const [equips, setEquips] = useState([])
   const fetchEquips = async () => {
     try {
-      let result = await axios.get("http://192.168.11.57:3000/admin/equipement")
+      let result = await axios.get("http://192.168.11.97:3000/admin/equipement")
         
   
       setEquips(result.data)
@@ -40,7 +40,7 @@ const Equipements = () => {
   const deleteEquip = async (id) => {
     try {
       
-      await axios.delete(`http://192.168.11.57:3000/admin/deleteEquip/${id}`)
+      await axios.delete(`http://192.168.11.97:3000/admin/deleteEquip/${id}`)
       
     }
     catch(err){console.log(err);
@@ -63,7 +63,7 @@ const Equipements = () => {
               <Card>
       <CardImg alt="Card image cap" src={equip.picture} />
       <CardBody className="p-4">
-        <CardTitle tag="h5">Machine Name: {equip.name}</CardTitle>
+        <CardTitle tag="h5">{equip.name}</CardTitle>
         <CardSubtitle> reference: {equip.reference}</CardSubtitle>
         <CardText className="mt-3"> Description : {equip.description}</CardText>
         <CardText className="mt-3"> Price: {equip.price}</CardText>

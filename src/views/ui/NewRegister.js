@@ -3,7 +3,7 @@ import {
  
   Card,
   CardBody,
-  CardTitle,Button,Row,Col
+  CardTitle,Button,Row,Col,CardText
 } from "reactstrap";
 import axios from "axios";
 
@@ -16,7 +16,7 @@ const NewRegister = () => {
   const fetchSp = async () => {
      
     
-    let result = await axios.get("http://192.168.11.57:3000/admin/sp")
+    let result = await axios.get("http://192.168.11.97:3000/admin/sp")
  
     
     setSp(result.data)
@@ -41,7 +41,7 @@ useEffect(() => {
       
       try {
       
-        const x = await axios.patch(`http://192.168.11.57:3000/admin/verify/${id}`)
+        const x = await axios.patch(`http://192.168.11.97:3000/admin/verify/${id}`)
         setDemand(x.data)
         console.log(id)
        
@@ -97,9 +97,10 @@ useEffect(() => {
                  <h5> FullName: {spp.firstName} {spp.lastName} </h5>
               <h5> speciality :{spp.speciality}</h5>
               <h5> city :{spp.city}</h5>
-                {spp.verified === true ? (<p style={{ color: "green", fontSize: 20 }}>verified  <span>&#10003;</span></p>) : (
-                  <img style={{ widht: 200, height: 400 }} src={spp.certificate}></img>)}
-                                  <Button color="success" style={{ marginTop: 236, marginLeft: 400 }} onClick={() => { demands(spp._id) }} >verify</Button>
+                {spp.verified === true ? <p style={{ color: "green", fontSize: 20 }}>verified  <span>&#10003;</span></p> : 
+                 <div> 
+                  <img style={{ width: 400, heigth: 500 }} src={spp.certificate}/>
+                                  <Button color="success" style={{ marginTop: 236, marginLeft: 400 }} onClick={() => { demands(spp._id) }} >verify</Button></div>}
 
                  
             

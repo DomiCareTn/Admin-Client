@@ -18,7 +18,7 @@ const Users = () => {
   const fetchSp = async () => {
     try {
       
-        let result = await axios.get("http://192.168.11.57:3000/admin/sp")
+        let result = await axios.get("http://192.168.11.97:3000/admin/sp")
         
         setSp(result.data)
         
@@ -34,7 +34,7 @@ const Users = () => {
   const fetchss = async () => {
     try {
       
-        let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
+        let serviceS = await axios.get("http://192.168.11.97:3000/admin/ss")
         
         setSS(serviceS.data)
         
@@ -61,7 +61,7 @@ const Users = () => {
     
     try {
       console.log(id);
-      await axios.patch(`http://192.168.11.57:3000/admin/banned/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/banned/${id}`)
       
       
       
@@ -73,7 +73,7 @@ const Users = () => {
   const unbanUser = async (id) => {
     try {
       
-      await axios.patch(`http://192.168.11.57:3000/admin/unbanned/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/unbanned/${id}`)
     }
     catch(err){console.log(err);
     } 
@@ -84,7 +84,7 @@ const Users = () => {
     
     try {
       console.log(id);
-      await axios.patch(`http://192.168.11.57:3000/admin/bannedSS/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/bannedSS/${id}`)
       
       
       
@@ -96,7 +96,7 @@ const Users = () => {
   const unbanUserSS = async (id) => {
     try {
       
-      await axios.patch(`http://192.168.11.57:3000/admin/unbannedSS/${id}`)
+      await axios.patch(`http://192.168.11.97:3000/admin/unbannedSS/${id}`)
       setSS(ss)
     }
     catch(err){console.log(err);

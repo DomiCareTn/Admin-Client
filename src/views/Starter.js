@@ -1,9 +1,7 @@
 import { Col, Row } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
 import Admins from "../components/dashboard/Admins";
-import ProjectTables from "../components/dashboard/ProjectTable";
 import TopCards from "../components/dashboard/TopCards";
-import Blog from "../components/dashboard/Blog";
 import bg1 from "../assets/images/bg/bg1.jpg";
 import bg2 from "../assets/images/bg/bg2.jpg";
 import bg3 from "../assets/images/bg/bg3.jpg";
@@ -21,10 +19,10 @@ const Starter = () => {
   useEffect(() => {
     async function fetchSp() {
     
-      let result = await axios.get("http://192.168.11.57:3000/admin/sp")
-      let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
-      let data = await axios.get("http://192.168.11.57:3000/admin/getposts")
-      let transact = await axios.get("http://192.168.11.57:3000/admin/transactions")
+      let result = await axios.get("http://192.168.11.97:3000/admin/sp")
+      let serviceS = await axios.get("http://192.168.11.97:3000/admin/ss")
+      let data = await axios.get("http://192.168.11.97:3000/admin/getposts")
+      let transact = await axios.get("http://192.168.11.97:3000/admin/transactions")
 
   
 
@@ -105,15 +103,7 @@ const Starter = () => {
                 icon="bi bi-coin"
               />
             </Col>
-            {/* <Col sm="6" lg="3">
-          <TopCards
-            bg="bg-light-warning text-warning"
-            title="New Project"
-            subtitle="Equipement providers"
-            earning="145"
-            icon="bi bi-basket3"
-          />
-        </Col> */}
+      
             <Col sm="6" lg="3">
               <TopCards
                 bg="bg-light-info text-into"
@@ -147,7 +137,6 @@ const Starter = () => {
 
 
       
-      {/***Top Cards***/}
       
       {/***Sales & Feed***/}
       <Row>
@@ -159,25 +148,9 @@ const Starter = () => {
         </Col>
       </Row>
       {/***Table ***/}
-      <Row>
-        <Col lg="12">
-          <ProjectTables />
-        </Col>
-      </Row>
+     
       {/***Blog Cards***/}
-      <Row>
-        {BlogData.map((blg, index) => (
-          <Col sm="6" lg="6" xl="3" key={index}>
-            <Blog
-              image={blg.image}
-              title={blg.title}
-              subtitle={blg.subtitle}
-              text={blg.description}
-              color={blg.btnbg}
-            />
-          </Col>
-        ))}
-      </Row>
+     
     </div>
   )
 }

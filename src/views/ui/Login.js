@@ -16,7 +16,7 @@ const Login = () => {
   
     const signin= async()=> {
     const {email,password}=formData
-      let result = await axios.post(`http://192.168.11.57:3000/admin/adminLogin`, { email,password })
+      let result = await axios.post(`http://192.168.11.97:3000/admin/adminLogin`, { email,password })
       
       setData(result.data)
      
@@ -32,11 +32,7 @@ const Login = () => {
         
        }
 
-      
-  
-      
-      // console.log('==============', formData);
-      console.log(result);
+          console.log(result);
  
       
     

@@ -20,8 +20,8 @@ const Posts = () => {
   
     const  fetchPosts= async ()=> {
       try {
-        let result = await axios.get("http://192.168.11.57:3000/admin/getposts")
-        // let serviceS = await axios.get("http://192.168.11.57:3000/admin/ss")
+        let result = await axios.get("http://192.168.11.97:3000/admin/getposts")
+        // let serviceS = await axios.get("http://192.168.11.97:3000/admin/ss")
         setPosts(result.data)
         // setSS(serviceS.data)
       
@@ -48,7 +48,7 @@ const Posts = () => {
   const deletePosts = async (id) => {
     try {
       
-      await axios.delete(`http://192.168.11.57:3000/admin/postdeletedId/${id}`)
+      await axios.delete(`http://192.168.11.97:3000/admin/postdeletedId/${id}`)
       
     }
     catch(err){console.log(err);
